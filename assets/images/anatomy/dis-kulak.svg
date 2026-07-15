@@ -1,0 +1,17 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <rect width="320" height="220" fill="#f5f7f8" rx="12" />
+  <!-- pinna -->
+  <path d="M95 55c-30 0-52 24-52 55 0 24 13 36 13 52 0 11 9 18 19 18 11 0 18-8 18-18 0-10-10-14-10-27 0-15 12-20 22-29 12-11 20-24 20-38 0-9-12-13-30-13z"
+        fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M82 90c-9 4-15 12-15 22s6 17 15 20" fill="none" stroke="#0f6e6e" stroke-width="5" stroke-linecap="round" />
+  <!-- ear canal -->
+  <path d="M148 118c30-2 55-4 80-4 14 0 22 5 22 12s-8 12-22 12c-25 0-50-2-78-5"
+        fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" />
+  <!-- eardrum -->
+  <ellipse cx="252" cy="126" rx="7" ry="16" fill="#e6f2f1" stroke="#0f6e6e" stroke-width="5" />
+
+  <text x="60" y="200" font-size="13" fill="#1f2a2e" font-weight="600">Kulak Kepçesi</text>
+  <text x="150" y="150" font-size="13" fill="#1f2a2e" font-weight="600">Dış Kulak Yolu</text>
+  <text x="222" y="60" font-size="13" fill="#1f2a2e" font-weight="600">Kulak Zarı</text>
+  <path d="M248 108c0-18 0-30 4-40" fill="none" stroke="#0f6e6e" stroke-width="2" stroke-dasharray="3 3" />
+</svg>

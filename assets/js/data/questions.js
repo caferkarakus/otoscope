@@ -6,6 +6,7 @@
   Alanlar:
     id          -> benzersiz kısa kod
     question    -> soru metni
+    image       -> (opsiyonel) soruyla ilgili görsel dosya yolu
     options     -> şıklar (dizi, istediğiniz kadar şık ekleyebilirsiniz)
     answerIndex -> doğru şıkkın "options" dizisindeki sırası (0'dan başlar: ilk şık = 0)
     explanation -> cevap seçildikten sonra gösterilecek açıklama
@@ -15,6 +16,7 @@ const QUESTIONS = [
   {
     id: "q1",
     question: "Akut otitis media tanısında en sık görülen bulgu aşağıdakilerden hangisidir?",
+    image: "assets/images/icons/ear.svg",
     options: [
       "Timpanik membranda bombeleşme",
       "Dış kulak yolunda kepeklenme",
@@ -27,6 +29,7 @@ const QUESTIONS = [
   {
     id: "q2",
     question: "Centor kriterlerinden biri değildir?",
+    image: "assets/images/icons/throat.svg",
     options: [
       "Ateş öyküsü",
       "Tonsiller eksüda",
@@ -39,6 +42,7 @@ const QUESTIONS = [
   {
     id: "q3",
     question: "BPPV'de tanı koydurucu manevra hangisidir?",
+    image: "assets/images/icons/vestibular.svg",
     options: [
       "Valsalva manevrası",
       "Dix-Hallpike testi",

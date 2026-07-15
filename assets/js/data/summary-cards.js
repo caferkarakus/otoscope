@@ -7,7 +7,8 @@
   Alanlar:
     id       -> benzersiz bir kısa kod (örn: "oma-3")
     title    -> kartta görünecek başlık
-    category -> kartın üstündeki küçük etiket (örn: "Kulak", "Burun", "Boğaz")
+    category -> kartın üstündeki küçük etiket (örn: "Otoloji", "Rinoloji", "BBC")
+    image    -> (opsiyonel) kartta ve detay penceresinde gösterilecek görsel dosya yolu
     summary  -> kart üzerinde görünecek kısa özet (1-2 cümle)
     details  -> karta tıklanınca açılan pencerede gösterilecek, "başlık: madde madde metin" şeklinde bölümler
 */
@@ -17,6 +18,7 @@ const SUMMARY_CARDS = [
     id: "oma-1",
     title: "Akut Otitis Media",
     category: "Otoloji",
+    image: "assets/images/icons/ear.svg",
     summary: "Orta kulağın akut enfeksiyonu; genellikle üst solunum yolu enfeksiyonunu takiben gelişir.",
     details: [
       {
@@ -41,6 +43,7 @@ const SUMMARY_CARDS = [
     id: "sinuzit-1",
     title: "Akut Rinosinüzit",
     category: "Rinoloji",
+    image: "assets/images/icons/nose.svg",
     summary: "Paranazal sinüs mukozasının akut enflamasyonu; genellikle viral kökenlidir.",
     details: [
       {
@@ -61,6 +64,7 @@ const SUMMARY_CARDS = [
     id: "tonsillit-1",
     title: "Akut Tonsillofarenjit",
     category: "BBC",
+    image: "assets/images/icons/throat.svg",
     summary: "Tonsil ve farenks mukozasının akut enfeksiyonu; viral veya bakteriyel olabilir.",
     details: [
       {
@@ -81,6 +85,7 @@ const SUMMARY_CARDS = [
     id: "vertigo-1",
     title: "Benign Paroksismal Pozisyonel Vertigo (BPPV)",
     category: "Otoloji",
+    image: "assets/images/icons/vestibular.svg",
     summary: "Baş hareketleriyle tetiklenen, kısa süreli, tekrarlayan vertigo ataklarıyla seyreden periferik vestibüler bozukluk.",
     details: [
       {

@@ -1,0 +1,19 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <rect width="320" height="220" fill="#f5f7f8" rx="12" />
+  <!-- nasal cavity profile -->
+  <path d="M120 40c30 4 55 22 68 46 8 15 8 30 0 42-14 24-42 40-78 40-22 0-38-10-38-26 0-10 8-16 8-28 0-16-12-24-12-40 0-20 24-36 52-34z"
+        fill="#e6f2f1" stroke="#0f6e6e" stroke-width="6" stroke-linejoin="round" />
+  <!-- septum -->
+  <path d="M78 60c30 6 52 26 52 58 0 20-12 34-30 40" fill="none" stroke="#0f6e6e" stroke-width="4" opacity="0.6" />
+  <!-- frontal sinus -->
+  <ellipse cx="150" cy="55" rx="20" ry="14" fill="none" stroke="#0f6e6e" stroke-width="5" />
+  <!-- maxillary sinus -->
+  <ellipse cx="190" cy="130" rx="26" ry="20" fill="none" stroke="#0f6e6e" stroke-width="5" />
+  <!-- sphenoid sinus -->
+  <ellipse cx="205" cy="72" rx="15" ry="12" fill="none" stroke="#0f6e6e" stroke-width="5" opacity="0.8" />
+
+  <text x="126" y="30" font-size="12" fill="#1f2a2e" font-weight="600">Frontal Sinüs</text>
+  <text x="222" y="60" font-size="12" fill="#1f2a2e" font-weight="600">Sfenoid Sinüs</text>
+  <text x="180" y="175" font-size="12" fill="#1f2a2e" font-weight="600">Maksiller Sinüs</text>
+  <text x="20" y="115" font-size="13" fill="#1f2a2e" font-weight="600">Nazal Kavite</text>
+</svg>

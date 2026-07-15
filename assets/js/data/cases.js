@@ -6,7 +6,8 @@
   Alanlar:
     id          -> benzersiz kısa kod
     title       -> vaka başlığı
-    category    -> etiket (örn: "Kulak", "Burun", "Boğaz", "Baş-Boyun")
+    category    -> etiket (örn: "Otoloji", "Rinoloji", "BBC")
+    image       -> (opsiyonel) vakayla ilgili görsel dosya yolu
     presentation-> hastanın başvuru şikayeti/öyküsü
     examination -> muayene bulguları
     discussion  -> tartışma / öğrenme noktaları (madde madde)
@@ -18,6 +19,7 @@ const CASES = [
     id: "case-1",
     title: "Ani İşitme Kaybı ile Başvuran Hasta",
     category: "Otoloji",
+    image: "assets/images/icons/hearing-loss.svg",
     presentation: "45 yaşında erkek hasta, 2 gün önce fark ettiği sağ kulakta ani işitme azlığı ve çınlama şikayetiyle başvurdu. Vertigo tanımlamıyor.",
     examination: "Otoskopik muayene doğal. Weber testi sol kulağa lateralize, Rinne testi her iki kulakta pozitif (sensörinöral paterni düşündürüyor).",
     diagnosis: "Ani İşitme Kaybı (Sudden Sensorineural Hearing Loss)",
@@ -32,6 +34,7 @@ const CASES = [
     id: "case-2",
     title: "Tekrarlayan Epistaksis",
     category: "Rinoloji",
+    image: "assets/images/icons/epistaxis.svg",
     presentation: "68 yaşında, hipertansiyon tanılı kadın hasta, son 1 haftada 3 kez tekrarlayan burun kanaması nedeniyle acile başvurdu.",
     examination: "Anterior rinoskopide Little alanında (Kiesselbach pleksusu) belirgin damarlanma ve kanama odağı izlendi. Kan basıncı yüksek ölçüldü.",
     diagnosis: "Anterior Epistaksis (Hipertansiyona sekonder)",

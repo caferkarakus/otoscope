@@ -1,0 +1,22 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <rect width="320" height="220" fill="#f5f7f8" rx="12" />
+  <!-- eardrum -->
+  <ellipse cx="70" cy="110" rx="8" ry="34" fill="#e6f2f1" stroke="#0f6e6e" stroke-width="6" />
+  <!-- malleus -->
+  <path d="M78 90c16-6 24-14 30-28" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" />
+  <circle cx="110" cy="60" r="7" fill="#0f6e6e" />
+  <!-- incus -->
+  <path d="M112 64c10 10 14 20 14 32" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" />
+  <circle cx="128" cy="98" r="7" fill="#0f6e6e" />
+  <!-- stapes -->
+  <path d="M132 102c14 4 24 10 30 20" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" />
+  <path d="M160 118c6 4 6 14 0 18M160 118v18" fill="none" stroke="#0f6e6e" stroke-width="5" stroke-linecap="round" />
+
+  <!-- eustachian tube -->
+  <path d="M85 150c40 20 90 32 150 28" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 0" />
+  <path d="M225 172l14 6-14 8" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <text x="20" y="165" font-size="13" fill="#1f2a2e" font-weight="600">Kulak Zarı</text>
+  <text x="88" y="35" font-size="13" fill="#1f2a2e" font-weight="600">Çekiç - Örs - Üzengi</text>
+  <text x="150" y="200" font-size="13" fill="#1f2a2e" font-weight="600">Östaki Borusu</text>
+</svg>

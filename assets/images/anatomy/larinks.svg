@@ -1,0 +1,18 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <rect width="320" height="220" fill="#f5f7f8" rx="12" />
+  <!-- epiglottis -->
+  <path d="M130 35c18-8 34-2 38 14-16 6-30 4-38-14z" fill="#e6f2f1" stroke="#0f6e6e" stroke-width="5" stroke-linejoin="round" />
+  <!-- laryngeal box -->
+  <path d="M100 70c0-8 10-14 30-14h20c20 0 30 6 30 14v50c0 8-10 14-30 14h-20c-20 0-30-6-30-14z"
+        fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linejoin="round" />
+  <!-- vocal cords -->
+  <path d="M108 100c14 8 26 8 40 0" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" />
+  <path d="M108 108c14-8 26-8 40 0" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" />
+  <!-- trachea rings -->
+  <path d="M105 134v50M135 134v56M165 134v50" fill="none" stroke="#0f6e6e" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+  <path d="M92 150c46 10 92 10 138 0M92 170c46 10 92 10 138 0" fill="none" stroke="#0f6e6e" stroke-width="4" opacity="0.4" />
+
+  <text x="150" y="30" font-size="12" fill="#1f2a2e" font-weight="600">Epiglot</text>
+  <text x="215" y="95" font-size="13" fill="#1f2a2e" font-weight="600">Vokal Kordlar</text>
+  <text x="205" y="185" font-size="13" fill="#1f2a2e" font-weight="600">Trakea</text>
+</svg>
