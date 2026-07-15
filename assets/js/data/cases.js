@@ -17,7 +17,7 @@ const CASES = [
   {
     id: "case-1",
     title: "Ani İşitme Kaybı ile Başvuran Hasta",
-    category: "Kulak",
+    category: "Otoloji",
     presentation: "45 yaşında erkek hasta, 2 gün önce fark ettiği sağ kulakta ani işitme azlığı ve çınlama şikayetiyle başvurdu. Vertigo tanımlamıyor.",
     examination: "Otoskopik muayene doğal. Weber testi sol kulağa lateralize, Rinne testi her iki kulakta pozitif (sensörinöral paterni düşündürüyor).",
     diagnosis: "Ani İşitme Kaybı (Sudden Sensorineural Hearing Loss)",
@@ -31,7 +31,7 @@ const CASES = [
   {
     id: "case-2",
     title: "Tekrarlayan Epistaksis",
-    category: "Burun",
+    category: "Rinoloji",
     presentation: "68 yaşında, hipertansiyon tanılı kadın hasta, son 1 haftada 3 kez tekrarlayan burun kanaması nedeniyle acile başvurdu.",
     examination: "Anterior rinoskopide Little alanında (Kiesselbach pleksusu) belirgin damarlanma ve kanama odağı izlendi. Kan basıncı yüksek ölçüldü.",
     diagnosis: "Anterior Epistaksis (Hipertansiyona sekonder)",

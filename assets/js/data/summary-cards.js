@@ -16,7 +16,7 @@ const SUMMARY_CARDS = [
   {
     id: "oma-1",
     title: "Akut Otitis Media",
-    category: "Kulak",
+    category: "Otoloji",
     summary: "Orta kulağın akut enfeksiyonu; genellikle üst solunum yolu enfeksiyonunu takiben gelişir.",
     details: [
       {
@@ -40,7 +40,7 @@ const SUMMARY_CARDS = [
   {
     id: "sinuzit-1",
     title: "Akut Rinosinüzit",
-    category: "Burun",
+    category: "Rinoloji",
     summary: "Paranazal sinüs mukozasının akut enflamasyonu; genellikle viral kökenlidir.",
     details: [
       {
@@ -60,7 +60,7 @@ const SUMMARY_CARDS = [
   {
     id: "tonsillit-1",
     title: "Akut Tonsillofarenjit",
-    category: "Boğaz",
+    category: "BBC",
     summary: "Tonsil ve farenks mukozasının akut enfeksiyonu; viral veya bakteriyel olabilir.",
     details: [
       {
@@ -80,7 +80,7 @@ const SUMMARY_CARDS = [
   {
     id: "vertigo-1",
     title: "Benign Paroksismal Pozisyonel Vertigo (BPPV)",
-    category: "Kulak",
+    category: "Otoloji",
     summary: "Baş hareketleriyle tetiklenen, kısa süreli, tekrarlayan vertigo ataklarıyla seyreden periferik vestibüler bozukluk.",
     details: [
       {

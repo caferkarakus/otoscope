@@ -15,7 +15,7 @@ const EMERGENCIES = [
   {
     id: "em-1",
     title: "Peritonsiller Apse",
-    category: "Boğaz",
+    category: "BBC",
     redFlags: [
       "Trismus (ağız açmada kısıtlılık)",
       "'Sıcak patates' sesi (muffled voice)",
@@ -32,7 +32,7 @@ const EMERGENCIES = [
   {
     id: "em-2",
     title: "Anjiyoödem / Üst Havayolu Obstrüksiyonu",
-    category: "Boğaz",
+    category: "BBC",
     redFlags: [
       "Dudak, dil, farenks ödemi",
       "Stridor",
@@ -49,7 +49,7 @@ const EMERGENCIES = [
   {
     id: "em-3",
     title: "Ciddi Epistaksis (Posterior Kanama)",
-    category: "Burun",
+    category: "Rinoloji",
     redFlags: [
       "Anterior kompresyona yanıtsız, devam eden kanama",
       "Her iki burun deliğinden de kan gelmesi",
@@ -66,7 +66,7 @@ const EMERGENCIES = [
   {
     id: "em-4",
     title: "Yabancı Cisim Aspirasyonu",
-    category: "Boğaz",
+    category: "BBC",
     redFlags: [
       "Ani başlayan öksürük, boğulma hissi",
       "Tek taraflı azalmış solunum sesleri",
