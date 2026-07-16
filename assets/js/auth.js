@@ -13,6 +13,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  updateProfile,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
@@ -77,6 +78,10 @@ function setMode(newMode) {
   });
   document.getElementById("auth-submit-btn").textContent = mode === "signin" ? "Giriş Yap" : "Kayıt Ol";
   document.getElementById("auth-error").hidden = true;
+
+  const isSignup = mode === "signup";
+  document.getElementById("auth-username-field").hidden = !isSignup;
+  document.getElementById("auth-username").required = isSignup;
 }
 
 function renderAuthArea(user) {
@@ -85,8 +90,9 @@ function renderAuthArea(user) {
     const verifiedBadge = user.emailVerified
       ? ""
       : `<span class="auth-unverified">doğrulanmadı</span> <button id="resend-btn" class="link-btn" type="button">doğrulama e-postasını gönder</button>`;
+    const label = user.displayName || user.email;
     area.innerHTML = `
-      <span class="auth-user" title="${user.email}">${user.email}</span>
+      <span class="auth-user" title="${user.email}">${label}</span>
       ${verifiedBadge}
       <button id="logout-btn" class="back-btn" type="button">Çıkış</button>
     `;
@@ -136,7 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
         await signInWithEmailAndPassword(auth, email, password);
         closeAuthModal();
       } else {
+        const username = document.getElementById("auth-username").value.trim();
         const credential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(credential.user, { displayName: username });
+        renderAuthArea(credential.user);
         await sendEmailVerification(credential.user);
         showVerificationNotice(email);
       }

@@ -56,6 +56,10 @@
         <button class="auth-tab-btn" type="button" data-mode="signup">Kayıt Ol</button>
       </div>
       <form id="auth-form">
+        <label class="auth-field" id="auth-username-field" hidden>
+          Kullanıcı Adı
+          <input type="text" id="auth-username" minlength="2" maxlength="30" />
+        </label>
         <label class="auth-field">
           E-posta
           <input type="email" id="auth-email" required />
