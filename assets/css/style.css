@@ -10,10 +10,13 @@
   --border: #e0e6e8;
   --radius: 10px;
 
-  /* Helix marka kimliği (header) */
-  --header-bg: #241b2e;
-  --header-text: #f5efe6;
-  --header-text-muted: rgba(245, 239, 230, 0.7);
+  /* Helix marka kimliği (header) — illüstrasyonla uyumlu siyah-beyaz palet;
+     altın sadece illüstrasyondaki kıvılcım detayına atıfla küçük bir vurgu
+     olarak korunuyor. */
+  --header-bg: #f7f7f5;
+  --header-text: #16161a;
+  --header-text-muted: rgba(22, 22, 26, 0.55);
+  --header-border: rgba(22, 22, 26, 0.18);
   --gold: #d9a441;
   --coral: #e2765f;
 }
@@ -32,10 +35,11 @@ body {
 .topbar {
   background: var(--header-bg);
   color: var(--header-text);
-  padding: 18px 24px;
+  padding: 16px 24px;
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 1px solid var(--header-border);
 }
 
 .brand-row {
@@ -43,31 +47,22 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.brand-mark {
-  height: 26px;
+.wordmark-img {
+  height: 56px;
   width: auto;
   display: block;
 }
 
-.wordmark {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--header-text);
-  letter-spacing: 0.01em;
-}
-
 .login-btn {
-  background: var(--gold);
+  background: var(--header-text);
   color: var(--header-bg);
   border: none;
   padding: 9px 22px;
@@ -79,7 +74,7 @@ body {
 }
 
 .login-btn:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.3);
 }
 
 .tabs {
@@ -159,7 +154,7 @@ body {
 
 .back-btn {
   background: transparent;
-  border: 1px solid rgba(245, 239, 230, 0.35);
+  border: 1px solid var(--header-border);
   color: var(--header-text);
   padding: 6px 14px;
   border-radius: 20px;
@@ -169,7 +164,7 @@ body {
 }
 
 .back-btn:hover {
-  background: rgba(245, 239, 230, 0.1);
+  background: rgba(22, 22, 26, 0.06);
 }
 
 .subspecialty-title {
