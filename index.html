@@ -17,6 +17,10 @@
         <button class="login-btn" type="button">Giriş</button>
       </div>
     </div>
+    <nav class="tabs" id="primary-tabs">
+      <button class="tab-btn active" data-primary="bolumler">Bölümler</button>
+      <button class="tab-btn" data-primary="evreleme">Kanser Evrelemesi</button>
+    </nav>
     <div id="subspecialty-bar" class="subspecialty-bar" hidden>
       <button id="back-to-home" class="back-btn">‹ Bölümler</button>
       <h2 id="subspecialty-title" class="subspecialty-title"></h2>
@@ -33,6 +37,7 @@
 
   <main id="content" class="content">
     <section id="bolumler" class="section active"></section>
+    <section id="evreleme" class="section"></section>
     <section id="ozetler" class="section"></section>
     <section id="anatomi" class="section"></section>
     <section id="sorular" class="section"></section>
@@ -81,6 +86,7 @@
 
   <!-- İçerik verileri: yeni konu eklemek için bu dosyaları düzenlemeniz yeterli -->
   <script src="assets/js/data/subspecialties.js"></script>
+  <script src="assets/js/data/staging.js"></script>
   <script src="assets/js/data/summary-cards.js"></script>
   <script src="assets/js/data/anatomy.js"></script>
   <script src="assets/js/data/questions.js"></script>
