@@ -454,31 +454,24 @@ const CONTENT_RENDERERS = {
     const sortedSites = [...STAGING_SITES].sort((a, b) => a.order - b.order);
     container.innerHTML = `
       <p class="section-intro staging-disclaimer">${STAGING_DISCLAIMER}</p>
-      <div class="grid">
-        <div class="card" data-chapter="shared-nodal">
-          <h3>${SHARED_NODAL_CHAPTER.title}</h3>
-          <p>Çoğu alt bölgede ortak kullanılan N kategorisi ve evre gruplama deseni.</p>
-        </div>
-        ${sortedSites
-          .map(
-            (site) => `
-          <div class="card" data-id="${site.id}">
-            <h3>${site.title}</h3>
-            <p>${site.summary}</p>
-          </div>`
-          )
-          .join("")}
+      <div class="staging-ref-layout">
+        <nav class="staging-ref-sidebar">
+          <button type="button" class="staging-ref-nav-btn" data-target="shared-nodal">${SHARED_NODAL_CHAPTER.title}</button>
+          ${sortedSites
+            .map((site) => `<button type="button" class="staging-ref-nav-btn" data-target="${site.id}">${site.title}</button>`)
+            .join("")}
+        </nav>
+        <div class="staging-ref-main" id="staging-ref-main"></div>
       </div>
     `;
 
-    container.querySelector('[data-chapter="shared-nodal"]').addEventListener("click", openSharedNodalReference);
-
-    container.querySelectorAll(".card[data-id]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const site = STAGING_SITES.find((s) => s.id === el.dataset.id);
-        openStagingReference(site);
-      });
+    container.querySelector(".staging-ref-sidebar").addEventListener("click", (e) => {
+      const btn = e.target.closest(".staging-ref-nav-btn");
+      if (!btn) return;
+      selectStagingRefNav(btn.dataset.target);
     });
+
+    selectStagingRefNav("shared-nodal");
   },
 
   /*
@@ -527,11 +520,13 @@ function stageTableRows(pattern) {
     .join("");
 }
 
-function openSharedNodalReference() {
+function sharedNodalContentHTML() {
   const ch = SHARED_NODAL_CHAPTER;
-  openModal(`
+  return `
     <h2>${ch.title}</h2>
-    <div class="modal-section"><p>${ch.intro}</p></div>
+    <div class="modal-section">
+      <ul class="staging-intro-list">${ch.introPoints.map((p) => `<li>${p}</li>`).join("")}</ul>
+    </div>
     <div class="modal-section">
       <h4>Klinik N (cN)</h4>
       <ul>${ch.nClinical.map((n) => `<li><strong>${n.code}</strong> — ${n.desc}</li>`).join("")}</ul>
@@ -553,15 +548,15 @@ function openSharedNodalReference() {
       <h4>Genel Kurallar</h4>
       <ul>${ch.generalRules.map((r) => `<li>${r}</li>`).join("")}</ul>
     </div>
-  `);
+  `;
 }
 
-function openStagingReference(site) {
+function stagingReferenceContentHTML(site) {
   const nInfoC = stagingNInfo(site, "clinical");
   const nInfoP = stagingNInfo(site, "pathological");
   const hasCustomStageTables = !!(site.stageGroupClinical || site.stageGroupPathological);
 
-  openModal(`
+  return `
     <h2>${site.title}</h2>
     <div class="modal-section"><p>${site.summary}</p></div>
     <div class="modal-section">
@@ -583,7 +578,7 @@ function openStagingReference(site) {
         ? ""
         : `<div class="modal-section">
       <h4>Evre Grubu</h4>
-      <p>Bu alt bölge <a href="#" class="staging-shared-link">paylaşılan evre gruplama desenini</a> kullanır (Tis→0, T1→I, T2→II, T3 veya N1→III, T4a veya N2→IVA, T4b veya N3→IVB, M1→IVC).</p>
+      <p>Bu alt bölge <a href="#" class="staging-shared-link" data-target="shared-nodal">paylaşılan evre gruplama desenini</a> kullanır (Tis→0, T1→I, T2→II, T3 veya N1→III, T4a veya N2→IVA, T4b veya N3→IVB, M1→IVC).</p>
     </div>`
     }
     <div class="modal-section">
@@ -592,14 +587,26 @@ function openStagingReference(site) {
         .map(([stage, text]) => `<p><strong>Evre ${stage}:</strong> ${text}</p>`)
         .join("")}
     </div>
-    <p class="staging-disclaimer">${STAGING_DISCLAIMER}</p>
-  `);
+  `;
+}
 
-  const link = document.querySelector(".staging-shared-link");
+function selectStagingRefNav(target) {
+  const nav = document.querySelector(".staging-ref-sidebar");
+  const main = document.getElementById("staging-ref-main");
+  if (!nav || !main) return;
+
+  nav.querySelectorAll(".staging-ref-nav-btn").forEach((b) => {
+    b.classList.toggle("active", b.dataset.target === target);
+  });
+
+  main.innerHTML = target === "shared-nodal" ? sharedNodalContentHTML() : stagingReferenceContentHTML(STAGING_SITES.find((s) => s.id === target));
+  main.scrollTop = 0;
+
+  const link = main.querySelector(".staging-shared-link");
   if (link) {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      openSharedNodalReference();
+      selectStagingRefNav("shared-nodal");
     });
   }
 }

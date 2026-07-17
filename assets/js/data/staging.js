@@ -438,9 +438,11 @@ function stagingGroupFn(site, mode) {
 /* ---------- Referans bölümü: paylaşılan lenf nodu evrelemesi (AJCC Bölüm 6) ---------- */
 
 const SHARED_NODAL_CHAPTER = {
-  title: "Paylaşılan Düğüm Kategorizasyonu ve Grup Aşamalandırması",
-  intro:
-    "Aşağıdaki N kategorisi kriterleri ve evre gruplama deseni; Oral Kavite, Büyük Tükürük Bezleri, Orofarenks (p16-negatif), Hipofarenks, Maksiller Sinüs, Nazal Kavite/Etmoid Sinüs ve Larinks'in üç alt bölgesi (Glottik, Supraglottik, Subglottik) dahil olmak üzere çoğu baş-boyun bölgesinde ORTAK olarak kullanılır. Nazofarenks ve HPV-ilişkili (p16-pozitif) orofarenks kanseri kendi ayrı N sistemlerini kullanır (ilgili alt bölge sayfalarında ayrıca belirtilmiştir).",
+  title: "Ortak Servikal Lenf Nodu Evrelemesi",
+  introPoints: [
+    "Aşağıdaki N kategorisi kriterleri ve evre gruplama deseni; Oral Kavite, Büyük Tükürük Bezleri, Orofarenks (p16-negatif), Hipofarenks, Maksiller Sinüs, Nazal Kavite/Etmoid Sinüs ve Larinks'in üç alt bölgesi (Glottik, Supraglottik, Subglottik) dahil olmak üzere çoğu baş-boyun bölgesinde ORTAK olarak kullanılır.",
+    "Nazofarenks ve HPV-ilişkili (p16-pozitif) orofarenks kanseri kendi ayrı N sistemlerini kullanır (ilgili alt bölge sayfalarında ayrıca belirtilmiştir)."
+  ],
   nClinical: SHARED_N_INFO_CLINICAL,
   nPathological: SHARED_N_INFO_PATHOLOGICAL,
   stagePattern: [
