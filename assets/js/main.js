@@ -484,33 +484,29 @@ const CONTENT_RENDERERS = {
   },
 
   /*
-    "Staging Calculator": alt bölge seçilir, ardından (varsa) cTNM/pTNM
-    seçimi ve T/N/M kategorileri seçilir; evre ve tedavi özeti anında
-    hesaplanır.
+    "Staging Calculator": tek soru olarak Tümör (alt bölge) seçilir; ardından
+    aynı sayfada (varsa) cTNM/pTNM seçimi ve T/N/M kategorileri belirir.
+    Evre ve tedavi özeti anında hesaplanır.
   */
   hesaplayici(container) {
     const sortedSites = [...STAGING_SITES].sort((a, b) => a.order - b.order);
     container.innerHTML = `
-      <p class="section-intro staging-disclaimer">${STAGING_DISCLAIMER} Aşağıdan bir alt bölge seçerek başlayın.</p>
-      <div class="grid">
-        ${sortedSites
-          .map(
-            (site) => `
-          <div class="card" data-id="${site.id}">
-            <span class="tag">AJCC Bölüm ${site.chapter}</span>
-            <h3>${site.title}</h3>
-            <p>${site.summary}</p>
-          </div>`
-          )
-          .join("")}
+      <p class="section-intro staging-disclaimer">${STAGING_DISCLAIMER}</p>
+      <div class="staging-calculator">
+        <fieldset class="staging-site-picker">
+          <legend>Tümör</legend>
+          <select id="stg-site" class="staging-select">
+            <option value="">— Alt bölge seçin —</option>
+            ${sortedSites.map((s) => `<option value="${s.id}">${s.title}</option>`).join("")}
+          </select>
+        </fieldset>
+        <div id="staging-dynamic"></div>
       </div>
     `;
 
-    container.querySelectorAll(".card[data-id]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const site = STAGING_SITES.find((s) => s.id === el.dataset.id);
-        openStagingCalculator(site);
-      });
+    container.querySelector("#stg-site").addEventListener("change", (e) => {
+      const site = STAGING_SITES.find((s) => s.id === e.target.value);
+      renderStagingCalculatorFields(site);
     });
   }
 };
@@ -611,23 +607,31 @@ function openStagingReference(site) {
   }
 }
 
-/* ---------- Staging Calculator: interaktif hesaplayıcı ---------- */
+/* ---------- Staging Calculator: interaktif hesaplayıcı (tek sayfa) ---------- */
 
 let calculatorMode = "clinical";
 
-function openStagingCalculator(site) {
+function renderStagingCalculatorFields(site) {
+  const dyn = document.getElementById("staging-dynamic");
+  if (!site) {
+    dyn.innerHTML = "";
+    return;
+  }
   calculatorMode = "clinical";
-  renderStagingCalculatorModal(site);
+  renderStagingCalculatorForm(site);
 }
 
-function renderStagingCalculatorModal(site) {
+function renderStagingCalculatorForm(site) {
+  const dyn = document.getElementById("staging-dynamic");
   const nInfo = stagingNInfo(site, calculatorMode);
   const showModeToggle = !site.noPathologicalToggle;
 
-  openModal(`
-    <span class="modal-tag">AJCC Bölüm ${site.chapter}</span>
-    <h2>${site.title}</h2>
-    <p class="staging-summary">${site.summary}</p>
+  dyn.innerHTML = `
+    <div class="staging-site-summary">
+      <span class="tag">AJCC Bölüm ${site.chapter}</span>
+      <h3>${site.title}</h3>
+      <p class="staging-summary">${site.summary}</p>
+    </div>
 
     ${
       showModeToggle
@@ -663,15 +667,13 @@ function renderStagingCalculatorModal(site) {
     </div>
 
     <div class="staging-result" id="staging-result"></div>
-
-    <p class="staging-disclaimer">${STAGING_DISCLAIMER}</p>
-  `);
+  `;
 
   if (showModeToggle) {
-    document.querySelectorAll(".staging-mode-btn").forEach((btn) => {
+    dyn.querySelectorAll(".staging-mode-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         calculatorMode = btn.dataset.mode;
-        renderStagingCalculatorModal(site);
+        renderStagingCalculatorForm(site);
       });
     });
   }

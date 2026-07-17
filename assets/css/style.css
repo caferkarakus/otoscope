@@ -686,6 +686,40 @@ p.section-intro.staging-disclaimer {
   line-height: 1.5;
 }
 
+.staging-calculator {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.staging-site-picker {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px 16px;
+  margin: 0 0 20px 0;
+}
+
+.staging-site-picker legend {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--primary-dark);
+  padding: 0 6px;
+}
+
+.staging-site-summary {
+  margin-bottom: 16px;
+}
+
+.staging-site-summary .tag {
+  margin-bottom: 8px;
+}
+
+.staging-site-summary h3 {
+  margin: 6px 0;
+  color: var(--primary-dark);
+}
+
 .staging-form fieldset {
   border: 1px solid var(--border);
   border-radius: 10px;
