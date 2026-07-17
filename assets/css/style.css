@@ -61,10 +61,18 @@ body {
   display: block;
 }
 
+.tabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .site-search {
   position: relative;
-  flex: 1;
-  max-width: 380px;
+  width: 280px;
+  flex-shrink: 0;
 }
 
 .site-search-input {
@@ -141,14 +149,8 @@ body {
 }
 
 @media (max-width: 640px) {
-  .brand-row {
-    flex-wrap: wrap;
-  }
-
   .site-search {
-    order: 3;
-    flex-basis: 100%;
-    max-width: none;
+    width: 100%;
   }
 }
 

@@ -12,19 +12,21 @@
       <div class="brand">
         <img src="assets/images/helix-wordmark.png" alt="Helix" class="wordmark-img" />
       </div>
-      <div class="site-search">
-        <input type="text" id="site-search-input" class="site-search-input" placeholder="Ara: konu, hastalık, evreleme..." autocomplete="off" />
-        <div id="site-search-results" class="site-search-results" hidden></div>
-      </div>
       <div id="auth-area" class="auth-area">
         <button class="login-btn" type="button">Giriş</button>
       </div>
     </div>
-    <nav class="tabs" id="primary-tabs">
-      <button class="tab-btn active" data-primary="bolumler">Bölümler</button>
-      <button class="tab-btn" data-primary="evreleme">Kanser Evrelemesi</button>
-      <button class="tab-btn" data-primary="hesaplayici">Staging Calculator</button>
-    </nav>
+    <div class="tabs-row">
+      <nav class="tabs" id="primary-tabs">
+        <button class="tab-btn active" data-primary="bolumler">Bölümler</button>
+        <button class="tab-btn" data-primary="evreleme">Kanser Evrelemesi</button>
+        <button class="tab-btn" data-primary="hesaplayici">Staging Calculator</button>
+      </nav>
+      <div class="site-search">
+        <input type="text" id="site-search-input" class="site-search-input" placeholder="Ara: konu, hastalık, evreleme..." autocomplete="off" />
+        <div id="site-search-results" class="site-search-results" hidden></div>
+      </div>
+    </div>
     <div id="subspecialty-bar" class="subspecialty-bar" hidden>
       <button id="back-to-home" class="back-btn">‹ Bölümler</button>
       <h2 id="subspecialty-title" class="subspecialty-title"></h2>
