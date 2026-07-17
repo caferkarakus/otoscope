@@ -36,7 +36,7 @@
 */
 
 const STAGING_DISCLAIMER =
-  "Bu bir eğitim materyalidir, gerçek klinik karar için güncel kılavuzlar ile multidisipliner konsey değerlendirmesi gereklidir.";
+  "Bu bir eğitim materyalidir. Gerçek klinik karar için güncel kılavuzlar ile multidisipliner değerlendirme ve uzman görüşü gereklidir.";
 
 /* ---------- Paylaşılan (genel) N / Evre sistemi ---------- */
 

@@ -456,7 +456,6 @@ const CONTENT_RENDERERS = {
       <p class="section-intro staging-disclaimer">${STAGING_DISCLAIMER}</p>
       <div class="grid">
         <div class="card" data-chapter="shared-nodal">
-          <span class="tag">AJCC Bölüm 6</span>
           <h3>${SHARED_NODAL_CHAPTER.title}</h3>
           <p>Çoğu alt bölgede ortak kullanılan N kategorisi ve evre gruplama deseni.</p>
         </div>
@@ -464,7 +463,6 @@ const CONTENT_RENDERERS = {
           .map(
             (site) => `
           <div class="card" data-id="${site.id}">
-            <span class="tag">AJCC Bölüm ${site.chapter}</span>
             <h3>${site.title}</h3>
             <p>${site.summary}</p>
           </div>`
@@ -493,6 +491,7 @@ const CONTENT_RENDERERS = {
     container.innerHTML = `
       <p class="section-intro staging-disclaimer">${STAGING_DISCLAIMER}</p>
       <div class="staging-calculator">
+        <p class="staging-edition">AJCC 8. Edition:</p>
         <fieldset class="staging-site-picker">
           <legend>Tümör</legend>
           <select id="stg-site" class="staging-select">
@@ -531,7 +530,6 @@ function stageTableRows(pattern) {
 function openSharedNodalReference() {
   const ch = SHARED_NODAL_CHAPTER;
   openModal(`
-    <span class="modal-tag">AJCC Bölüm 6</span>
     <h2>${ch.title}</h2>
     <div class="modal-section"><p>${ch.intro}</p></div>
     <div class="modal-section">
@@ -564,7 +562,6 @@ function openStagingReference(site) {
   const hasCustomStageTables = !!(site.stageGroupClinical || site.stageGroupPathological);
 
   openModal(`
-    <span class="modal-tag">AJCC Bölüm ${site.chapter}</span>
     <h2>${site.title}</h2>
     <div class="modal-section"><p>${site.summary}</p></div>
     <div class="modal-section">
@@ -628,7 +625,6 @@ function renderStagingCalculatorForm(site) {
 
   dyn.innerHTML = `
     <div class="staging-site-summary">
-      <span class="tag">AJCC Bölüm ${site.chapter}</span>
       <h3>${site.title}</h3>
       <p class="staging-summary">${site.summary}</p>
     </div>
