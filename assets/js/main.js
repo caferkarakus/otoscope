@@ -706,6 +706,133 @@ function recomputeStaging(site) {
   `;
 }
 
+/* ---------- Site geneli arama ---------- */
+
+const SEARCH_TYPE_LABELS = {
+  ozetler: "Özet Kart",
+  anatomi: "Anatomi",
+  sorular: "Soru",
+  tus: "TUS",
+  vakalar: "Vaka Sunumu",
+  aciller: "Acil",
+  "staging-site": "Kanser Evrelemesi",
+  "staging-shared": "Kanser Evrelemesi"
+};
+
+let searchIndex = [];
+
+function buildSearchIndex() {
+  const index = [];
+
+  function addContentItems(items, type, titleField) {
+    items.forEach((item) => {
+      const sub = SUBSPECIALTIES.find((s) => s.title === item.category);
+      index.push({
+        type,
+        id: item.id,
+        title: item[titleField],
+        category: item.category,
+        subspecialtyId: sub ? sub.id : null,
+        matchText: [item[titleField], item.category, item.summary].filter(Boolean).join(" ").toLocaleLowerCase("tr")
+      });
+    });
+  }
+
+  addContentItems(SUMMARY_CARDS, "ozetler", "title");
+  addContentItems(ANATOMY, "anatomi", "title");
+  addContentItems(QUESTIONS, "sorular", "question");
+  addContentItems(TUS_QUESTIONS, "tus", "question");
+  addContentItems(CASES, "vakalar", "title");
+  addContentItems(EMERGENCIES, "aciller", "title");
+
+  index.push({
+    type: "staging-shared",
+    id: "shared-nodal",
+    title: SHARED_NODAL_CHAPTER.title,
+    category: "Kanser Evrelemesi",
+    matchText: [SHARED_NODAL_CHAPTER.title, ...SHARED_NODAL_CHAPTER.introPoints].join(" ").toLocaleLowerCase("tr")
+  });
+
+  STAGING_SITES.forEach((site) => {
+    index.push({
+      type: "staging-site",
+      id: site.id,
+      title: site.title,
+      category: "Kanser Evrelemesi",
+      matchText: [site.title, site.summary].filter(Boolean).join(" ").toLocaleLowerCase("tr")
+    });
+  });
+
+  return index;
+}
+
+function searchResultTitle(entry) {
+  return entry.title.length > 90 ? `${entry.title.slice(0, 90).trimEnd()}…` : entry.title;
+}
+
+function runSiteSearch(query) {
+  const resultsBox = document.getElementById("site-search-results");
+  const q = query.trim().toLocaleLowerCase("tr");
+
+  if (q.length < 2) {
+    resultsBox.hidden = true;
+    resultsBox.innerHTML = "";
+    return;
+  }
+
+  const matches = searchIndex.filter((entry) => entry.matchText.includes(q)).slice(0, 20);
+
+  if (matches.length === 0) {
+    resultsBox.innerHTML = `<p class="site-search-empty">Sonuç bulunamadı.</p>`;
+    resultsBox.hidden = false;
+    return;
+  }
+
+  resultsBox.innerHTML = matches
+    .map(
+      (entry, i) => `
+    <button type="button" class="site-search-result" data-index="${i}">
+      <div class="site-search-result-title">${searchResultTitle(entry)}</div>
+      <div class="site-search-result-meta">${SEARCH_TYPE_LABELS[entry.type]}${
+        entry.type !== "staging-site" && entry.type !== "staging-shared" ? ` · ${entry.category}` : ""
+      }</div>
+    </button>`
+    )
+    .join("");
+
+  resultsBox.querySelectorAll(".site-search-result").forEach((btn) => {
+    btn.addEventListener("click", () => goToSearchResult(matches[Number(btn.dataset.index)]));
+  });
+
+  resultsBox.hidden = false;
+}
+
+function goToSearchResult(entry) {
+  document.getElementById("site-search-results").hidden = true;
+  document.getElementById("site-search-input").value = "";
+
+  if (entry.type === "staging-site" || entry.type === "staging-shared") {
+    switchPrimary("evreleme");
+    selectStagingRefNav(entry.id);
+    return;
+  }
+
+  switchPrimary("bolumler");
+  enterSubspecialty(entry.subspecialtyId);
+  switchSection(entry.type);
+
+  requestAnimationFrame(() => {
+    const container = document.getElementById(entry.type);
+    const target = container.querySelector(`[data-id="${entry.id}"]`);
+    if (!target) return;
+    if (entry.type === "ozetler" || entry.type === "anatomi" || entry.type === "aciller") {
+      target.click();
+    } else {
+      target.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+  });
+}
+
 function switchSection(sectionId) {
   document.querySelectorAll("#content-tabs .tab-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.section === sectionId);
@@ -720,6 +847,22 @@ function switchSection(sectionId) {
 
 document.addEventListener("DOMContentLoaded", () => {
   CONTENT_RENDERERS.bolumler(document.getElementById("bolumler"));
+
+  searchIndex = buildSearchIndex();
+  document.getElementById("site-search-input").addEventListener("input", (e) => {
+    runSiteSearch(e.target.value);
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".site-search")) {
+      document.getElementById("site-search-results").hidden = true;
+    }
+  });
+  document.getElementById("site-search-input").addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      e.target.blur();
+      document.getElementById("site-search-results").hidden = true;
+    }
+  });
 
   document.getElementById("back-to-home").addEventListener("click", exitToHome);
 
