@@ -312,30 +312,11 @@ body {
   color: var(--primary-dark);
 }
 
-.card .tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  background: #e6f2f1;
-  color: var(--primary-dark);
-  padding: 2px 8px;
-  border-radius: 12px;
-  margin-bottom: 8px;
-}
-
 .card p {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.4;
-}
-
-.card.emergency {
-  border-left: 4px solid var(--danger);
-  background: var(--danger-bg);
-}
-
-.card.emergency h3 {
-  color: var(--danger);
 }
 
 /* Bölümler ana ekranı */
@@ -401,91 +382,10 @@ body {
   display: block;
 }
 
-/* Kaydırmalı (swipe) kart dizisi: Sorular ve Vaka Sunumları */
-.swipe-wrap {
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-.swipe-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  padding-bottom: 4px;
-  scrollbar-width: none;
-}
-
-.swipe-track::-webkit-scrollbar {
-  display: none;
-}
-
-.swipe-card {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px;
-}
-
-.swipe-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 14px;
-}
-
-.swipe-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  color: var(--primary-dark);
-  font-size: 1.2rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.swipe-btn:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-
-.swipe-btn:not(:disabled):hover {
-  border-color: var(--primary);
-}
-
-.swipe-dots {
-  display: flex;
-  gap: 8px;
-}
-
-.swipe-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: var(--border);
-  cursor: pointer;
-  padding: 0;
-}
-
-.swipe-dot.active {
-  background: var(--primary);
-  transform: scale(1.3);
-}
-
 /* Sorular bölümü */
 .question-card h3 {
   margin-top: 0;
   font-size: 1rem;
-}
-
-.case-card h3 {
-  margin-top: 0;
 }
 
 .options {
@@ -570,21 +470,6 @@ body {
   font-size: 1.4rem;
   cursor: pointer;
   color: var(--text-muted);
-}
-
-.modal h2 {
-  margin-top: 0;
-  color: var(--primary-dark);
-}
-
-.modal .modal-tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  background: #e6f2f1;
-  color: var(--primary-dark);
-  padding: 3px 10px;
-  border-radius: 12px;
-  margin-bottom: 10px;
 }
 
 .modal-section {
